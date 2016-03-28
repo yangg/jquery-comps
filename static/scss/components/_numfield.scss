@@ -1,0 +1,15 @@
+.num-field {
+  display: table; border: 1px solid #ccc; width: 6em;
+  input {
+    display: table-cell;
+    border: 1px solid #ccc; border-top: none; border-bottom: none; border-radius: 0;
+    width: 3em; height: 21px;
+    outline: none; ime-mode: disabled; text-align: center;
+  }
+  .minus, .plus {
+    display: table-cell; outline: none;
+    width: 1.5em; color: #444; text-align: center;
+    background-image: linear-gradient(#fff, #f7f7f7);
+    text-decoration: none !important;
+  }
+}

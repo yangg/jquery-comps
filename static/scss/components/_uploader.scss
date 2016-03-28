@@ -1,0 +1,33 @@
+$previewer-border: $input-border !default;
+$previewer-size: 106px 80px !default;
+.image-uploader {
+  margin: 0; padding: 0;
+  li {
+    display: inline-block; text-align: center; padding: 5px;
+    border: solid 1px $previewer-border; border-radius: 5px;
+    position: relative;
+    + li {
+      margin-left: 10px;
+    }
+    .img-wrapper {
+      @include size($previewer-size);
+      max-width: nth($previewer-size, 1); // fix 宽图 for firefox
+      display: table-cell; vertical-align: middle;
+    }
+    img { max-width: 100%; max-height: 100%; }
+
+    .remove {
+      display: none;
+      @include position(absolute, -.5em -.5em null null); line-height: 1; text-decoration: none;
+      font-size: 20px; color: $brand-danger;
+    }
+    &:hover .remove {
+      display: block;
+    }
+    &.btn-wrapper {
+      //border: none; width: 70px;
+      border-style: dashed;
+      i { font-size: 30px; display: block; }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+
+$checkable-cls: checkable;
+
+@keyframes checkbox-bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+}
+.#{$checkable-cls} {
+  font-weight: normal; // reset bootstrap label
+
+  [type=checkbox], [type=radio] {
+    position: absolute;
+    // Hidden checkboxes don't receive events in IE version below 9
+    opacity: 0;
+
+    + span {
+      color: $brand-primary;
+      font-family: $icon-font;
+      font-size: 1.2em;
+      vertical-align: -7%;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      &::after {
+        content: $icon-var-checkbox;
+      }
+    }
+    &:checked + span {  }
+    &:checked + span::after { content: $icon-var-checkbox-checked; animation: checkbox-bounce 0.3s; }
+    &:disabled + span {
+      color: #ccc;
+    }
+  }
+  [type=radio] {
+    + span::after { content: $icon-var-radio; }
+    &:checked + span::after { content: $icon-var-radio-checked; }
+  }
+
+  &+ .#{$checkable-cls} { margin-left: 10px; }
+}
+
+.hehe {
+  input {
+    //opacity: 0;
+    position: absolute; width: 0;//left: -9999px;
+    &:checked + span { color: green; }
+  }
+}

@@ -1,0 +1,70 @@
+
+.form-control-focused {
+  border-color: $input-border-focus;
+  outline: 0;
+  //box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba($input-border-focus, .6);
+  &.search-container-below {
+    @include border-bottom-radius(0);
+  }
+}
+.tabs-select {
+  position: relative; height: auto;
+  ul { list-style: none; margin: 0; padding: 0; }
+  .item-list {
+    @include clearfix; margin-bottom: -5px;
+    li {
+      float: left; margin: 0 5px 5px 0;
+      &.list-item {
+        border: solid 1px #ccc; border-radius: 3px; padding: 0 5px;
+        cursor: pointer;
+        .item-remove { color: #b0aeae; }
+      }
+      &.item-search {
+        input { outline: none; border: none; width: 1em; }
+      }
+    }
+  }
+  .search-box {
+    position: absolute; left: 0; right: 0; margin-left: -1px; margin-right: -1px; margin-top: 5px;
+    border: solid 1px $input-border-focus; @include border-bottom-radius($input-border-radius);
+    background-color: #fff; z-index: 1000;
+    display: none;
+    a { color: inherit; text-decoration: none; }
+
+    .search-tab {
+      @include clearfix;
+      background-color: #f7f7f7; line-height: 2.4;
+      padding: 0 10px;
+      li {
+        text-align: center; display: table-cell; width: 1%; cursor: pointer; letter-spacing: .1em;
+        &.active {
+          border-bottom: 2px solid $brand-primary;
+        }
+      }
+    }
+    .tab-content {
+      padding: 10px; max-height: 260px; overflow-y: auto;
+      dt, dd { line-height: 1.7; }
+      dl {
+        @include clearfix; margin-bottom: 0;
+        dt { float: left; padding: 0 10px; font-weight: normal; }
+        dd {
+          margin-left: 40px;
+          ul {
+            @include clearfix;
+            li {
+              float: left; /* width: 20%;*/ padding: 0 5px; margin-bottom: 3px;
+              a { display: block; }
+              &:hover {
+                background-color: lighten($brand-primary, 20%); color: #fff;
+              }
+              &.active {
+                background-color: $brand-primary; color: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

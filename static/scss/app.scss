@@ -1,0 +1,39 @@
+
+@import "mixins";
+@import "backend/variables";
+
+
+html, body {
+  height: 100%;
+}
+
+.wrap {
+  min-height: 100%;
+  height: auto;
+  margin: 0 auto -30px;
+  padding: 0 0 30px;
+}
+
+.wrap > .container {
+  padding: 70px 15px 20px;
+}
+.footer {
+  line-height: 30px; text-align: center;
+}
+
+
+
+@import "components/icon-base";
+@import "backend/icon";
+
+@import "components/rating";
+@import "components/checkable";
+// include components
+.inter-select select + select { margin-top: 10px; }
+@media (min-width: $screen-sm-min) {
+  .inter-select select + select { margin-top: 0; margin-left: 10px; }
+}
+
+@import "components/uploader";
+@import "components/tabs-select";
+@import "components/cat-tree";

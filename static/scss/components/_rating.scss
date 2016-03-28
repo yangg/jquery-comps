@@ -1,0 +1,27 @@
+
+$rating-font: $icon-font !default;
+$rating-star: $icon-var-star !default;
+$rating-star-o: $icon-var-star-o !default;
+$rating-color: #fdca7a !default;
+
+.rating {
+  display: inline-block;
+  font-family: $rating-font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color: $rating-color;
+  letter-spacing: .3em;
+  position: relative;
+  white-space: nowrap; // nowrap for IE
+  &::after {
+    content: $rating-star-o + $rating-star-o + $rating-star-o + $rating-star-o + $rating-star-o;
+  }
+  &-score {
+    position: absolute;
+    overflow: hidden;
+    &::after {
+      content: $rating-star + $rating-star + $rating-star + $rating-star + $rating-star;
+    }
+  }
+}

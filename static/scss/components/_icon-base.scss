@@ -1,0 +1,19 @@
+
+
+$icon-cls: icon !default;
+
+.#{$icon-cls} {
+  display: inline-block;
+  font: normal normal normal 14px/1 $icon-font; // shortening font declaration
+  font-size: inherit; // can't have font-size inherit on line above, so need to override
+  text-rendering: auto; // optimizelegibility throws things off #1094
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+@import "../../vendor/font-awesome/variables";
+@import "../../vendor/font-awesome/mixins";
+@import "../../vendor/font-awesome/larger";
+@import "../../vendor/font-awesome/animated";
+@import "../../vendor/font-awesome/stacked";

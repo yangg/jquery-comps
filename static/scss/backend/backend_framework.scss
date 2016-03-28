@@ -1,0 +1,49 @@
+// bootstrap & configs
+@import 'variables';
+@import '../../vendor/bootstrap/bootstrap';
+@import '../mixins';
+
+// overwrite bootstrap
+a {
+  color: $link-color;
+  &:hover { color: $brand-primary; text-decoration: none; }
+  &:focus { text-decoration: none; }
+  &.visited {
+    color: $text-color;
+  }
+}
+
+
+.form-query {
+  @extend .form-inline;
+  @extend .form-group-sm;
+}
+.tool-group {
+  padding-bottom: 15px;
+}
+.form-query, .tool-group {
+  .btn {
+    @extend .btn-sm;
+  }
+}
+
+.table-default {
+  @extend .table;
+  @extend .table-striped;
+  @extend .table-hover;
+  margin-bottom: 0;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        vertical-align: middle;
+      }
+    }
+  }
+  > thead > tr > th  {
+    border-bottom: solid 1px #798992;
+    color: #505050;
+  }
+}
