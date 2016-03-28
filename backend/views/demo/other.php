@@ -3,11 +3,13 @@
  * Created by brook
  * Date: 3/23/16 8:39 PM
  */
+/* @var $this \yii\web\View */
 
 use yii\helpers\Html;
 
 $this->title = 'Other';
 
+$this->params['baseUrl'] = backend\assets\AppAsset::register($this)->baseUrl;
 common\assets\lib\ImageUploaderAsset::register($this);
 common\assets\lib\CatTreeAsset::register($this);
 common\assets\lib\InputFilterAsset::register($this);
@@ -31,7 +33,7 @@ common\assets\vendor\PrismAsset::register($this);
 <div class="row">
     <div class="col-sm-5">
         <p><input data-toggle="masked" maxlength="14" name="code" class="form-control" placeholder="Input verify code"/></p>
-        <p><input data-toggle="numberFilter" class="form-control" ></p>
+        <p><input data-toggle="numberFilter" class="form-control" /></p>
         <p><input data-toggle="numberFilter" data-decimal="2" class="form-control"/></p>
     </div>
 </div>
@@ -51,7 +53,7 @@ Time remained: <span class="count-down" data-end="<?=strtotime('+5 mins')?>"?></
 
         $('.count-down').countDown({
             onEnd: function() {
-                alert("You've opened this page for 5 minutes!");
+                console.log("You've opened this page for 5 minutes!");
             }
         });
     });

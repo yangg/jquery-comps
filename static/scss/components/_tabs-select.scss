@@ -36,7 +36,10 @@
       background-color: #f7f7f7; line-height: 2.4;
       padding: 0 10px;
       li {
-        text-align: center; display: table-cell; width: 1%; cursor: pointer; letter-spacing: .1em;
+        text-align: center; display: table-cell; width: 1%; cursor: pointer;
+        @media (min-width: 360px) {
+          letter-spacing: .1em;
+        }
         &.active {
           border-bottom: 2px solid $brand-primary;
         }

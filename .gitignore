@@ -33,7 +33,7 @@ phpunit.phar
 /node_modules
 /static/css
 /static_dist
-/backends/web/uploads
+/backend/web/uploads
 /frontend
 /environments/prod/frontend
 /environments/dev/frontend

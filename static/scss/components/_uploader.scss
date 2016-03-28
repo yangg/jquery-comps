@@ -6,9 +6,7 @@ $previewer-size: 106px 80px !default;
     display: inline-block; text-align: center; padding: 5px;
     border: solid 1px $previewer-border; border-radius: 5px;
     position: relative;
-    + li {
-      margin-left: 10px;
-    }
+    margin-right: 10px;
     .img-wrapper {
       @include size($previewer-size);
       max-width: nth($previewer-size, 1); // fix 宽图 for firefox

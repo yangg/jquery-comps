@@ -1,4 +1,5 @@
 <?php
+/* @var $this \yii\web\View */
 
 use yii\helpers\Html;
 
@@ -68,7 +69,7 @@ common\assets\vendor\PrismAsset::register($this);
 <?php Html::endCode()?>
 
 <h1 class="page-header">InterSelect</h1>
-<p class="lead">TODO</p>
+<p class="lead">...</p>
 <div data-toggle="interSelect" data-data='<?=json_encode($cats)?>' class="form-inline" ></div>
 <h2>District</h2>
 <div data-toggle="district" style="margin-top: 10px;" class="form-inline" ></div>

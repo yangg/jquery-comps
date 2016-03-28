@@ -1,12 +1,11 @@
 <?php
+/* @var $this \yii\web\View */
+$this->title = 'Demo';
+
 common\assets\lib\InterSelectAsset::register($this);
 common\assets\lib\DistrictAsset::register($this);
 common\assets\lib\ImageUploaderAsset::register($this);
-$cats = [
-    [ 'id' => 1, 'name' => 'Haha', 'parent_id' => 0],
-    [ 'id' => 2, 'name' => 'Yaya', 'parent_id' => 0],
-    [ 'id' => 11,'name' => 'Child', 'parent_id' => 1 ],
-];
+
 ?>
 <style>
     .rating { font-size: 2em; }

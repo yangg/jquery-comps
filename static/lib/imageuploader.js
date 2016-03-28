@@ -101,7 +101,7 @@
         });
 
         // add upload btn
-        var btnItem = $(strbuf('<li class="btn-wrapper"><a class="img-wrapper" href="javascript:"><i class="icon i-uploadphoto"></i> ${btnText}</a></li>', config)).appendTo($this);
+        var btnItem = $(strbuf('<li class="btn-wrapper"><a class="img-wrapper" href="javascript:"><i class="icon i-upload"></i> ${btnText}</a></li>', config)).appendTo($this);
         config.browse_button = config.drop_element = btnItem.find('a')[0];
 
         methods.val(config.value || []);
