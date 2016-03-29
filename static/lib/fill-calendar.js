@@ -91,5 +91,6 @@
             this.html.push('<td class="{0}" data-day="{1}"><div class="day-number">{2}</div></td>', cls || '', dayStr, day.getDate());
         }
     };
-    ControlManager.register(FillCalendar);
+
+    ControlManager.register('fillCalendar', FillCalendar);
 })();

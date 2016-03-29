@@ -41,5 +41,6 @@
     name: null,
     value: 0
   };
-  window.ControlManager && ControlManager.register(Rating);
+
+  ControlManager.register('rating', Rating);
 })();

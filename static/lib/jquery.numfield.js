@@ -56,5 +56,5 @@
         }
     };
 
-    window.ControlManager && ControlManager.register(NumField);
+    ControlManager.register('numField', NumField);
 })();

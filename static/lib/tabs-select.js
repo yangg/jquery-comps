@@ -93,5 +93,6 @@
       this.itemList.find('.item-search').before(itemHtml);
     }
   };
-  window.ControlManager && ControlManager.register(TabsSelect);
+
+  ControlManager.register('tabsSelect', TabsSelect);
 })();

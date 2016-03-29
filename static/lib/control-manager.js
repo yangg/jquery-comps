@@ -18,14 +18,6 @@
 
   $.inherit = extend;
 
-  function getName(func) {
-    var fnName = func.name || (func.toString().match(/^function\s+([\w\$]+)\s*\(/) || [0, 0])[1];
-    if(!fnName) {
-      throw new TypeError('Cannot get function name!\n' + func.toString());
-    }
-    return fnName;
-  }
-
   var ControlManager = {
     triggers: [],
     init: function () {
@@ -49,10 +41,7 @@
         $(this)[toggle]();
       });
     },
-    register: function (Cls) {
-      var fnName = getName(Cls).replace(/^[A-Z]/, function ($0) {
-        return $0.toLowerCase();
-      });
+    register: function (fnName, Cls) {
       $.fn[fnName] = function (option) {
         var args = arguments;
         return this.each(function () {
