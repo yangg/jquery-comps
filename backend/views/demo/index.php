@@ -1,6 +1,6 @@
 <?php
 /* @var $this \yii\web\View */
-$this->title = 'Demo';
+$this->title = 'Demo1';
 
 common\assets\lib\InterSelectAsset::register($this);
 common\assets\lib\DistrictAsset::register($this);
