@@ -74,7 +74,7 @@ gulp.task(config.preprocessor, function() {
 gulp.task('styles', [config.preprocessor], function() {
   return gulp.src([paths.src + '**/*.css', '!**/*.min.css', '!' + paths.src + 'css/**/*.css'])
     .pipe(plugins.changed(paths.dest))
-    .pipe(plugins.minifyCss())
+    .pipe(plugins.cleanCss())
     .pipe(gulp.dest(paths.dest));
 });
 
