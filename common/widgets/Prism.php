@@ -34,9 +34,12 @@ class Prism extends Widget{
     public function run()
     {
         if($this->src) {
-            return sprintf('<pre data-src="%s/%s"></pre>', $this->baseUrl, $this->src);
+            $content = file_get_contents(\Yii::getAlias('@common/../static/' . $this->src));
+            $this->lang = pathinfo($this->src)['extension'];
+//            return sprintf('<pre data-src="%s/%s"></pre>', $this->baseUrl, $this->src);
+        } else {
+            $content = ob_get_clean();
         }
-        $content = ob_get_clean();
         if(!$this->lang) {
             // try to get lang from script type
             if(preg_match('#^\s*<script\s+type="text/(\w+)"#', $content, $matches) === 1) {

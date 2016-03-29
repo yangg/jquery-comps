@@ -9,7 +9,6 @@ use common\widgets\Prism;
 
 $this->title = 'Javascript';
 
-
 ?>
 <style>
     pre { max-height: 30em; }
