@@ -10,6 +10,9 @@ namespace common\widgets;
 use yii\base\Widget;
 use yii\helpers\Html;
 
+/**
+ * highlight code
+ */
 class Prism extends Widget{
 
     public $lang;
