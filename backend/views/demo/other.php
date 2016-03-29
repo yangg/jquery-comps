@@ -6,15 +6,14 @@
 /* @var $this \yii\web\View */
 
 use yii\helpers\Html;
+use common\widgets\Prism;
 
 $this->title = 'Other';
 
-$this->params['baseUrl'] = backend\assets\AppAsset::register($this)->baseUrl;
 common\assets\lib\ImageUploaderAsset::register($this);
 common\assets\lib\CatTreeAsset::register($this);
 common\assets\lib\InputFilterAsset::register($this);
 common\assets\lib\CountDownAsset::register($this);
-common\assets\vendor\PrismAsset::register($this);
 ?>
 
 <h1 class="page-header">ImageUploader</h1>
@@ -38,11 +37,11 @@ common\assets\vendor\PrismAsset::register($this);
     </div>
 </div>
 <h2>Usage</h2>
-<?php Html::beginCode()?>
+<?php Prism::begin()?>
 <p><input data-toggle="masked" maxlength="14" name="code" class="form-control"/></p>
 <p><input data-toggle="numberFilter" class="form-control" ></p>
 <p><input data-toggle="numberFilter" data-decimal="2" class="form-control"/></p>
-<?php Html::endCode()?>
+<?php Prism::end()?>
 
 <h1 class="page-header">$.fn.countDown</h1>
 Time remained: <span class="count-down" data-end="<?=strtotime('+5 mins')?>"?></span>
