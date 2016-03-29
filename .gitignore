@@ -34,6 +34,3 @@ phpunit.phar
 /static/css
 /static_dist
 /backend/web/uploads
-/frontend
-/environments/prod/frontend
-/environments/dev/frontend
