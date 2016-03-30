@@ -14,7 +14,8 @@
       this.editable = !!this.config.name;
       if(this.editable) {
         this.hidden = $(strbuf('<input type="hidden" name="{0}" />', this.config.name)).appendTo(this.element);
-        this.element.on('click mousemove', function(e) {
+        this.element.addClass('editable')
+          .on('click mousemove', function(e) {
             var value = Math.ceil((e.offsetX / this.element.width()) * 5);
             this.val(value, e.type == 'click'); // only update hidden value when triggered by 'click'
           }.bind(this))

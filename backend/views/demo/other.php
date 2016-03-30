@@ -14,7 +14,12 @@ common\assets\lib\ImageUploaderAsset::register($this);
 common\assets\lib\CatTreeAsset::register($this);
 common\assets\lib\InputFilterAsset::register($this);
 common\assets\lib\CountDownAsset::register($this);
+common\assets\lib\CarouselAsset::register($this);
 ?>
+<style>
+.carousel { width: 480px; }
+.carousel .item { height: 300px; }
+</style>
 
 <h1 class="page-header">ImageUploader</h1>
 <p class="lead">Based on <a href="http://www.plupload.com/">Plupload</a></p>
@@ -46,6 +51,22 @@ common\assets\lib\CountDownAsset::register($this);
 <h1 class="page-header">$.fn.countDown</h1>
 Time remained: <span class="count-down" data-end="<?=strtotime('+5 mins')?>"?></span>
 
+<h1 class="page-header">$.fn.carousel</h1>
+<div data-toggle="carousel" class="carousel" style="">
+    <div class="carousel-scroller">
+        <div class="carousel-inner">
+            <?php foreach ($adverts as $adv): ?>
+                <a href="<?= $adv['link'] ? : 'javascript:'  ?>" class="item">
+                    <img src="<?= $adv['image'] ?>" title="<?= $adv['title'] ?>"/>
+                </a>
+            <?php endforeach ?>
+        </div>
+    </div>
+    <a href="javascript:" class="carousel-next carousel-prev" data-backward="true"><i class="icon i-angle-left"></i></a>
+    <a href="javascript:" class="carousel-next"><i class="icon i-angle-right"></i></a>
+    <div class="carousel-pager"></div>
+</div>
+
 <script>
     $(function() {
         $('.image-uploader').imageUploader();
@@ -55,5 +76,7 @@ Time remained: <span class="count-down" data-end="<?=strtotime('+5 mins')?>"?></
                 console.log("You've opened this page for 5 minutes!");
             }
         });
+        $.fn.carousel.noConflict && $.fn.carousel.noConflict(); // if bootstrap carousel load first
+        $('.carousel').carousel();
     });
 </script>

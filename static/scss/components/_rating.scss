@@ -24,4 +24,7 @@ $rating-color: #fdca7a !default;
       content: $rating-star + $rating-star + $rating-star + $rating-star + $rating-star;
     }
   }
+  &.editable {
+    cursor: pointer;
+  }
 }

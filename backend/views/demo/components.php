@@ -39,11 +39,6 @@ common\assets\lib\DistrictAsset::register($this);
 <div data-toggle="rating" data-value="3.5"></div>
 <div data-name="rating_value" data-toggle="rating" data-value="3"></div>
 <?php Prism::end()?>
-<?php Prism::begin(['lang' => 'php'])?>
-<div data-toggle="rating" data-value="2"></div><br/>
-<div data-toggle="rating" data-value="3.5"></div>
-<div data-name="rating_value" data-toggle="rating" data-value="3"></div>
-<?php Prism::end()?>
 
 <h1 id="checkable" class="page-header">Checkable</h1>
 <p class="lead">Customized checkbox & radio, pure CSS</p>

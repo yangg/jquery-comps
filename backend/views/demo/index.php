@@ -27,13 +27,18 @@ common\assets\lib\ImageUploaderAsset::register($this);
     <div class="form-group">
         <label class="control-label col-sm-3">Your choices</label>
         <div class="col-sm-7">
-            <label class="checkable"><input type="checkbox"/><span></span> Google</label>
-            <label class="checkable"><input type="checkbox"/><span></span> Apple</label>
+            <label class="checkable"><input type="checkbox"/><span></span> Google<span class="aa"></span></label>
+            <label class="checkable"><input type="checkbox"/><span></span> Apple<span class="aa"></span></label>
             <label class="checkable"><input type="checkbox"/><span></span> Twitter</label>
             <label class="checkable"><input type="checkbox" disabled/><span></span> Disabled</label>
             <label class="checkable"><input type="checkbox" disabled/><span></span> Disabled && Checked</label>
         </div>
     </div>
+    <script>
+    $(':checkbox').change(function() {
+        $(this).siblings('.aa').text(this.checked? ' checked': ' unchecked');
+    });
+    </script>
     <div class="form-group">
         <label class="control-label col-sm-3">Gender</label>
         <div class="col-sm-5">

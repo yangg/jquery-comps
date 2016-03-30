@@ -76,7 +76,12 @@ JSON;
     }
 
     public function actionOther() {
-        return $this->render('other');
+        $adverts = [
+            [ 'image' => 'http://ww2.sinaimg.cn/large/6eba2496gw1erep0e1leyj21hc0xcwlh.jpg', 'link' => '', 'title' => ''],
+            [ 'image' => 'http://ww3.sinaimg.cn/large/6eba2496gw1erfjlqhxh6j20e80lc76b.jpg', 'link' => '', 'title' => ''],
+            [ 'image' => 'http://ww3.sinaimg.cn/large/6eba2496gw1erfjm47r6rj208c0b4t8z.jpg', 'link' => '', 'title' => ''],
+        ];
+        return $this->render('other', compact('adverts'));
     }
 
 //    public function actionMissing($action) {
