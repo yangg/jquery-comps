@@ -5,9 +5,12 @@
 (function($) {
   function InputFilter(input, config) {
     this.input = $(input);
-    this.config = $.extend({}, config);
-    this.pattern = "\\d";
+    this.config = $.extend({}, this.constructor.DEFAULTS, config);
   }
+
+  InputFilter.DEFAULTS = {
+    cleanPattern: /[^\d]+/g
+  };
 
   InputFilter.prototype = {
     constructor: InputFilter,
@@ -15,8 +18,6 @@
       this.input
         .keypress($.proxy(this.pressFilter, this))
         .on('input propertychange', $.proxy(this.inputFilter, this));
-      this.fixReg = new RegExp('[^' + this.pattern + ']', 'g');
-      this.pattern = new RegExp('[' + this.pattern + ']');
     },
     pressFilter: function (e) {
       // ignore the following keys in firefox
@@ -26,7 +27,7 @@
       }
       // http://api.jquery.com/event.which/
       var ch = String.fromCharCode(e.which);
-      return this.pattern.test(ch);
+      return !this.config.cleanPattern.test(ch);
     },
     inputFilter: function () {
       var input = this.input;
@@ -38,13 +39,16 @@
 
       var newVal = this.fixVal();
 
-      // set val when necessary to speed up in IE 8
-      input.val() !== newVal && input.val(newVal);
-      caretPos && this.setCaret(caretPos);
+      // only set val when necessary to speed up in IE 8
+      if(input.val() !== newVal) {
+        input.val(newVal);
+        //caretPos > 0 && caretPos--; // move backward after invalid chars inserted & cleaned.
+        caretPos !== null && this.setCaret(caretPos);
+      }
     },
     fixVal: function () {
       var newVal = this.input.val().trim();
-      newVal = newVal.replace(this.fixReg, '');
+      newVal = newVal.replace(this.config.cleanPattern, '');
       return newVal;
     },
     setCaret: function (caretPos) {
@@ -81,7 +85,7 @@
     this.config = $.extend({
       decimal: 0
     }, this.config);
-    this.config.decimal && (this.pattern = "\\d\\.");
+    this.config.decimal && (this.config.cleanPattern = /[^\d\.]+/g);
 
     this.init();
   }
@@ -121,9 +125,17 @@
   }
 
   $.inherit(Masked, InputFilter);
+  Masked.DEFAULTS = $.extend({}, InputFilter.DEFAULTS, {
+    rules: {
+      "": [/(\d{4})(?=\d)/g, '$1 '],
+      "phone": [/(^\d{3}|\d{4})(?=\d)/g, '$1 ']
+    },
+    rule: ""
+  });
   Masked.prototype.fixVal = function () {
     var newVal = this.constructor.__super__.fixVal.call(this);
-    newVal = newVal.replace(/(\d{4})(?=\d)/g, '$1 ');
+    var currentRule = this.config.rules[this.config.rule];
+    newVal = newVal.replace(currentRule[0], currentRule[1]);
     this.updateHidden();
     return newVal;
   };

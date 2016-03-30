@@ -36,7 +36,8 @@ common\assets\lib\CarouselAsset::register($this);
 <h1 class="page-header">InputFilter</h1>
 <div class="row">
     <div class="col-sm-5">
-        <p><input data-toggle="masked" maxlength="14" name="code" class="form-control" placeholder="Input verify code"/></p>
+        <p><input data-toggle="masked" data-rule="phone" maxlength="13" name="code" class="form-control" placeholder="cellphone number"/></p>
+        <p><input data-toggle="masked" maxlength="19" name="code" class="form-control" placeholder="Bank Card ID"/></p>
         <p><input data-toggle="numberFilter" class="form-control" /></p>
         <p><input data-toggle="numberFilter" data-decimal="2" class="form-control"/></p>
     </div>
