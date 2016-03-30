@@ -19,10 +19,11 @@ return [
                 'yii\bootstrap\BootstrapAsset' => false,
                 'yii\web\JqueryAsset' => [
                     // include my own jquery
-                    'sourcePath'=> '@static/vendor',
+//                    'sourcePath'=> '@static/vendor',
                     'jsOptions' => [
                         // put jquery to head
-                        'position' => \yii\web\View::POS_HEAD
+                        'position' => \yii\web\View::POS_HEAD,
+                        'condition' => 'gte IE 9 | !IE'
                     ]
                 ],
             ],

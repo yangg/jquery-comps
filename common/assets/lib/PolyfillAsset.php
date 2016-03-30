@@ -6,13 +6,14 @@ use yii\web\AssetBundle;
 
 class PolyfillAsset extends AssetBundle
 {
-    public $sourcePath = '@static/vendor/ie8-polyfill';
+    public $sourcePath = '@static/vendor';
     public $css = [
     ];
     public $jsOptions = ['condition' => 'lte IE 8', 'position' => \yii\web\View::POS_HEAD ];
     public $js = [
-        "ie8-polyfill.js",
-        "respond.js",
+        'jquery-legacy.js',
+        "ie8-polyfill/ie8-polyfill.js",
+        "ie8-polyfill/respond.js",
     ];
     public $depends = [
     ];
