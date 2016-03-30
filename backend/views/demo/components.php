@@ -45,7 +45,7 @@ common\assets\lib\DistrictAsset::register($this);
 <div data-name="rating_value" data-toggle="rating" data-value="3"></div>
 <?php Prism::end()?>
 
-<h1 class="page-header">Checkable</h1>
+<h1 id="checkable" class="page-header">Checkable</h1>
 <p class="lead">Customized checkbox & radio, pure CSS</p>
 <div>
     <label class="checkable"><input checked type="checkbox"/><span></span> Google</label>

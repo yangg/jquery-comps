@@ -144,4 +144,4 @@ gulp.task('watch', [config.preprocessor], function() {
 
 gulp.task('dist', ['copy', 'concat']);
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['dist']);

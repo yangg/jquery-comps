@@ -17,6 +17,6 @@ class PrismAsset extends AssetBundle
     public function registerAssetFiles($view) {
         parent::registerAssetFiles($view);
 
-        $view->registerJs('Prism.plugins.autoloader.languages_path = "http://prismjs.com/components/";', \yii\web\View::POS_END);
+        $view->registerJs('Prism.plugins.autoloader.languages_path = "//7xsffj.com1.z0.glb.clouddn.com/prism-components/";', \yii\web\View::POS_END);
     }
 }
