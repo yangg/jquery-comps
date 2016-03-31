@@ -13,4 +13,6 @@ class ColorPickerAsset extends AssetBundle
     public $js = [
         'jquery.simplecolorpicker.js',
     ];
+    public $depends = [
+    ];
 }

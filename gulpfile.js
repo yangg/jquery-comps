@@ -27,6 +27,7 @@ paths.style_src = paths.src + ({ sass: 'scss/**/*.scss', less: 'less/**/*.less' 
 function notify(err) {
   var title = err.plugin + ' ' + err.name;
   var msg = err.message;
+  console.log(msg);
   notifier.notify({
     title: title,
     message: msg,

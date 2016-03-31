@@ -1,3 +1,25 @@
 
 
 @import "../vendor/bourbon/bourbon";
+
+// border
+// @param $styles
+//    List of border style values: border-color [border-width [border-style] ]
+// @example Usage
+//   @include border(horizontal, #ccc 10px solid);
+//   @include border(horizontal, #ccc 5px);
+//   @include border(horizontal, #ccc);
+
+@mixin border($directions, $styles) {
+  @if $directions == vertical {
+    $directions: (top bottom);
+  } @else if $directions == horizontal {
+    $directions: (right left);
+  }
+  $style: if(length($styles) < 3, solid, null);
+  $width: if(length($styles) < 2, 1px, null);
+
+  @each $direction in $directions {
+    border-#{$direction}: $styles $width $style;
+  }
+}

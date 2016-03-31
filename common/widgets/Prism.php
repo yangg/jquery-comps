@@ -41,7 +41,7 @@ class Prism extends Widget{
             $content = ob_get_clean();
         }
         if(!$this->lang) {
-            // try to get lang from script type
+            // try to get lang from <script type="text/(\w+)">
             if(preg_match('#^\s*<script\s+type="text/(\w+)"#', $content, $matches) === 1) {
                 $this->lang = $matches[1];
                 $content = preg_replace('#^\s*<script[^>]*>\s*|\s*</script>\s*$#', '', $content);

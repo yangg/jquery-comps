@@ -14,4 +14,6 @@ class ValidatorAsset extends AssetBundle
         'jquery.validator.js',
         'local/zh-CN.js',
     ];
+    public $depends = [
+    ];
 }

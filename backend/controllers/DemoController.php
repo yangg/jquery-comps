@@ -7,6 +7,7 @@
 namespace backend\controllers;
 
 
+use app\models\Reservations;
 use backend\models\UploadForm;
 use yii\web\UploadedFile;
 
@@ -21,6 +22,10 @@ class DemoController extends Controller {
     }
 
     public function actionIndex() {
+        return $this->render('index');
+    }
+
+    public function actionForm() {
 
         $cats = [
             [ 'id' => 1, 'name' => 'Haha', 'parent_id' => 0],
@@ -28,7 +33,7 @@ class DemoController extends Controller {
             [ 'id' => 11,'name' => 'Child', 'parent_id' => 1 ],
         ];
 
-        return $this->render('index', compact('cats'));
+        return $this->render('form', compact('cats'));
     }
 
     public function actionPost() {
@@ -82,6 +87,35 @@ JSON;
             [ 'image' => 'http://ww3.sinaimg.cn/large/6eba2496gw1erfjm47r6rj208c0b4t8z.jpg', 'link' => '', 'title' => ''],
         ];
         return $this->render('other', compact('adverts'));
+    }
+
+    public function actionReserving() {
+        return $this->render('reserving');
+    }
+
+    public function actionReservations() {
+        $reservations = Reservations::find()
+            ->where(['>=', 'start', $_GET['start']])
+            ->andWhere(['<=', 'end', $_GET['end']])->all();
+        return $this->json([ 'data' => $reservations, 'code' => 0 ]);
+    }
+    public function actionReservationUpdate() {
+        if($_POST['id']) {
+            // update
+            Reservations::updateAll($_POST, ['id' => $_POST['id']]);
+        } else {
+            // create new
+            $reservation = new Reservations();
+            $reservation->attributes = $_POST;
+            $reservation->save();
+            $this->json['data'] = $reservation->id;
+        }
+        return $this->json(['code' => 0 ]);
+    }
+
+    public function actionReservationDel() {
+        Reservations::findOne($_POST['id'])->delete();
+        return $this->json(['code' => 0]);
     }
 
 //    public function actionMissing($action) {

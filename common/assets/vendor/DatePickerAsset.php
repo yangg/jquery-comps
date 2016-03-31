@@ -12,4 +12,6 @@ class DatePickerAsset extends AssetBundle
     public $js = [
         'WdatePicker.js',
     ];
+    public $depends = [
+    ];
 }

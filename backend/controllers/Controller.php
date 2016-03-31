@@ -7,10 +7,18 @@
 namespace backend\controllers;
 
 
+use yii\helpers\ArrayHelper;
+
 class Controller extends \yii\web\Controller {
 
-    public $json = array('code' => 1);
-    public function json() {
-        return json_encode($this->json);
+    public $json = ['code' => 1];
+    public function json($json = []) {
+        $output = ArrayHelper::merge($this->json, $json);
+        \Yii::$app->response->format = 'json';
+        if(YII_DEBUG) {
+            $output['_POST'] = \Yii::$app->request->post();
+            $output['_GET'] = \Yii::$app->request->get();
+        }
+        return $output;
     }
 }

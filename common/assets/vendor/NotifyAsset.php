@@ -4,14 +4,13 @@ namespace common\assets\vendor;
 
 use yii\web\AssetBundle;
 
-class TreeAsset extends AssetBundle
+class NotifyAsset extends AssetBundle
 {
-    public $sourcePath = '@static/vendor/jstree';
+    public $sourcePath = '@static';
     public $css = [
-        'themes/default/style.css',
     ];
     public $js = [
-        'jstree.js',
+        'vendor/notify.js',
     ];
     public $depends = [
     ];

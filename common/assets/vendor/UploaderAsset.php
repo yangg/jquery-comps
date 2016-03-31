@@ -13,4 +13,6 @@ class UploaderAsset extends AssetBundle
         "moxie.js",
         "plupload.dev.js",
     ];
+    public $depends = [
+    ];
 }

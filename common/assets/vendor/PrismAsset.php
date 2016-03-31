@@ -13,6 +13,8 @@ class PrismAsset extends AssetBundle
     public $js = [
         'prism.js',
     ];
+    public $depends = [
+    ];
 
     public function registerAssetFiles($view) {
         parent::registerAssetFiles($view);
