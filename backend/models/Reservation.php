@@ -13,14 +13,14 @@ use Yii;
  * @property integer $end
  * @property integer $room_id
  */
-class Reservations extends \yii\db\ActiveRecord
+class Reservation extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'reservations';
+        return 'reservation';
     }
 
     /**

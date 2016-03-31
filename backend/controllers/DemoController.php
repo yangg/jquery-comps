@@ -94,7 +94,7 @@ JSON;
     }
 
     public function actionReservations() {
-        $reservations = Reservations::find()
+        $reservations = Reservation::find()
             ->where(['>=', 'start', $_GET['start']])
             ->andWhere(['<=', 'end', $_GET['end']])->all();
         return $this->json([ 'data' => $reservations, 'code' => 0 ]);
@@ -102,10 +102,10 @@ JSON;
     public function actionReservationUpdate() {
         if($_POST['id']) {
             // update
-            Reservations::updateAll($_POST, ['id' => $_POST['id']]);
+            Reservation::updateAll($_POST, ['id' => $_POST['id']]);
         } else {
             // create new
-            $reservation = new Reservations();
+            $reservation = new Reservation();
             $reservation->attributes = $_POST;
             $reservation->save();
             $this->json['data'] = $reservation->id;
@@ -114,7 +114,7 @@ JSON;
     }
 
     public function actionReservationDel() {
-        Reservations::findOne($_POST['id'])->delete();
+        Reservation::findOne($_POST['id'])->delete();
         return $this->json(['code' => 0]);
     }
 
