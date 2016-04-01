@@ -7,4 +7,4 @@
 
 ?>
 
-<a href="/demo/reserving">Reserving System Demo</a>
+<a href="/demo/reserving">Reserving System</a>

@@ -7,16 +7,20 @@
 
 $this->title = 'Reserving System';
 
+$this->params['breadcrumbs'][] = ['label' => 'Demo', 'url' => '/demo'];
+$this->params['breadcrumbs'][] = $this->title;
+
 common\assets\vendor\FullCalendarAsset::register($this);
 common\assets\vendor\NotifyAsset::register($this);
+
+$this->registerCssFile('@asset/css/backend/reserving.css');
 ?>
 <style>
 h1, h2 { font-weight: 100; }
-.page-header { text-align: center; }
+h1 { text-align: center; display: none; }
 
 .fc th { font-weight: 400; }
 </style>
-<h1 class="page-header"><?=$this->title ?></h1>
 <div id="calendar"></div>
 <dl class="text-muted usage">
     <dt>使用帮助</dt>

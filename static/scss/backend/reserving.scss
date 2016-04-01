@@ -1,0 +1,79 @@
+@import "../mixins";
+@import "variables";
+
+@mixin arrow($border-color, $width: 10px, $height: $width) {
+  border: 1px solid $border-color;
+  &%basic {
+    .arrow, .arrow::after {
+      position: absolute; height: 0; width: 0; font-size: 0;
+    }
+  }
+  &%vertical {
+    @extend %basic;
+    .arrow, .arrow::after {
+      @include border(horizontal, transparent $width);
+    }
+    .arrow {
+      left: 50%; margin-left: -$width;
+      &::after {
+        content: ''; left: -$width;
+      }
+    }
+  }
+  &-top {
+    @extend %vertical;
+    .arrow {
+      border-top: $border-color $height solid; top: 100%;
+      &::after {
+        border-top: #FFF $height solid; bottom: 1px;
+      }
+    }
+  }
+  &-bottom {
+    @extend %vertical;
+    .arrow {
+      border-bottom: $border-color $height solid; bottom: 100%;
+      &::after {
+        border-bottom: #FFF $height solid; top: 1px;
+      }
+    }
+  }
+}
+
+.bubble {
+  @include arrow(#ccc);
+  box-shadow: 0 2px 4px rgba(0,0,0,.2); border-radius: 2px;
+  background: #fff; padding: 15px;
+  width: 420px;
+  z-index: 99;
+  position: absolute;
+
+  .close {
+    position: absolute; font-size: 24px; line-height: 1;
+    padding: 0 5px;
+    right: 5px; top: 5px;
+  }
+}
+.group-wrap {
+  @include clearfix;
+  padding-bottom: 8px;
+  > label {
+    float: left;
+    width: 4em;
+    text-align: right;
+    padding-right: 5px;
+  }
+  > input, > .input-wrapper {
+    margin-left: 4em;
+    display: block;
+  }
+}
+.btn-delete {
+  margin-top: 5px;
+  display: none;
+  color: $brand-danger;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.usage { margin-top: 10px; }
