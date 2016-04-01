@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * https://yii2-cookbook.readthedocs.org/structure-asset-processing-with-grunt/
+ */
 namespace common\assets\lib;
 
 use yii\web\AssetBundle;

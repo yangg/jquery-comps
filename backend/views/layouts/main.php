@@ -38,7 +38,15 @@ backend\assets\AppAsset::register($this)
         ['label' => 'Home', 'url' => ['/']],
         ['label' => 'Components', 'url' => ['/demo/components']],
         ['label' => 'Javascript', 'url' => ['/demo/javascript']],
-        ['label' => 'Other', 'url' => ['/demo/other']],
+        ['label' => 'Demos', 'url' => 'http://codepen.io/yangg/pens/popular/', 'linkOptions' => ['target' => '_blank']],
+        [
+            'label' => 'More',
+            'items' => [
+                ['label' => 'Bootstrap+', 'url' => ['/demo/bootstrap'] ],
+                ['label' => 'Vendor Plugins', 'url' => ['/demo/vendors'] ],
+                ['label' => 'Extensions', 'url' => ['/demo/extensions']],
+            ]
+        ],
     ];
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],

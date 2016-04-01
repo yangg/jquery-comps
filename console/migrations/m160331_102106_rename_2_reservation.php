@@ -6,12 +6,12 @@ class m160331_102106_rename_2_reservation extends Migration
 {
     public function up()
     {
-        $this->renameTable('reservations', 'reservation');
+        $this->renameTable('{{%reservations}}', '{{%reservation}}');
     }
 
     public function down()
     {
-        $this->renameTable('reservation', 'reservations');
+        $this->renameTable('{{%reservation}}', '{{%reservations}}');
     }
 
     /*

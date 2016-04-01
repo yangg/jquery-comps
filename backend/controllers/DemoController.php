@@ -80,13 +80,17 @@ JSON;
         return $this->render('javascript');
     }
 
-    public function actionOther() {
+    public function actionExtensions() {
         $adverts = [
             [ 'image' => 'http://ww2.sinaimg.cn/large/6eba2496gw1erep0e1leyj21hc0xcwlh.jpg', 'link' => '', 'title' => ''],
             [ 'image' => 'http://ww3.sinaimg.cn/large/6eba2496gw1erfjlqhxh6j20e80lc76b.jpg', 'link' => '', 'title' => ''],
             [ 'image' => 'http://ww3.sinaimg.cn/large/6eba2496gw1erfjm47r6rj208c0b4t8z.jpg', 'link' => '', 'title' => ''],
         ];
-        return $this->render('other', compact('adverts'));
+        return $this->render('extensions', compact('adverts'));
+    }
+
+    public function actionVendors() {
+        return $this->render('vendors');
     }
 
     public function actionReserving() {
@@ -118,11 +122,4 @@ JSON;
         return $this->json(['code' => 0]);
     }
 
-//    public function actionMissing($action) {
-//        $methodName = 'action' . str_replace(' ', '', ucwords(implode(' ', explode('-', $action))));
-//        if(method_exists($this, $methodName)) {
-//            return call_user_func([$this, $methodName]);
-//        }
-//        return $this->render($action);
-//    }
 }

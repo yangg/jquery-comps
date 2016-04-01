@@ -6,7 +6,7 @@ class m160331_074158_create_reservations extends Migration
 {
     public function up()
     {
-        $this->createTable('reservations', [
+        $this->createTable('{{%reservations}}', [
             'id' => $this->primaryKey(),
             'title' => $this->string()->notNull(),
             'start' => $this->integer(10)->notNull(),
@@ -17,6 +17,6 @@ class m160331_074158_create_reservations extends Migration
 
     public function down()
     {
-        $this->dropTable('reservations');
+        $this->dropTable('{{%reservations}}');
     }
 }

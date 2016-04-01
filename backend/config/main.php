@@ -34,7 +34,7 @@ return [
             'showScriptName' => false,
             'rules' => [
                 'login' => 'site/login',
-//                'demo/<action>' => 'demo/missing',
+                'pen/<action>' => 'pen/missing',
             ],
         ],
     ],

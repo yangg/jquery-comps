@@ -13,7 +13,7 @@ class Select2Asset extends AssetBundle
     ];
     public $js = [
         "js/select2.js",
-        "js/i18n/zh-CN.js",
+//        "js/i18n/zh-CN.js",
     ];
     public $depends = [
     ];
@@ -21,6 +21,10 @@ class Select2Asset extends AssetBundle
     public function registerAssetFiles($view) {
         parent::registerAssetFiles($view);
 
-        $view->registerJs('$.fn.select2.defaults.set("theme", "bootstrap");', \yii\web\View::POS_END);
+        $view->registerJs(<<<JS
+$.fn.select2.defaults.set("theme", "bootstrap");
+$.fn.select2.defaults.set("placeholder", "Select")
+JS
+, \yii\web\View::POS_END);
     }
 }
