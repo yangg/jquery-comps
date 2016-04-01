@@ -7,7 +7,7 @@
 namespace backend\controllers;
 
 
-use app\models\Reservations;
+use app\models\Reservation;
 use backend\models\UploadForm;
 use yii\web\UploadedFile;
 
