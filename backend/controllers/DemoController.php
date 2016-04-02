@@ -6,7 +6,7 @@
 
 namespace backend\controllers;
 
-
+use Yii;
 use app\models\Reservation;
 use backend\models\UploadForm;
 use yii\web\UploadedFile;
@@ -77,7 +77,7 @@ JSON;
     }
 
     public function actionJavascript() {
-        return $this->render('javascript');
+        return $this->render($this->action->id);
     }
 
     public function actionExtensions() {
@@ -90,11 +90,24 @@ JSON;
     }
 
     public function actionVendors() {
-        return $this->render('vendors');
+        return $this->render($this->action->id);
+    }
+
+    public function actionBootstrap() {
+        return $this->render($this->action->id);
+    }
+
+    public function actionBootstrapDel() {
+        return $this->json(['code' => 0]);
+    }
+
+    public function actionBootstrapEdit() {
+        $id = Yii::$app->request->get('id', 'null');
+        return $this->renderAjax($this->action->id, compact('id'));
     }
 
     public function actionReserving() {
-        return $this->render('reserving');
+        return $this->render($this->action->id);
     }
 
     public function actionReservations() {
