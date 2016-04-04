@@ -17,7 +17,7 @@ $colors = array_combine($colors, $colors);
 ?>
 <style>
 .qr-wrap canvas { width: 300px; height: 300px; } /* large image for download, show more small */
-.qr-wrap > div {  zoom: .75; } /* Zoom for IE 8 */
+.qr-wrap > div {  zoom: .75; } /* fallback to div in IE8, set size via zoom */
 </style>
 <?php $form = yii\widgets\ActiveForm::begin(['options' => [ 'class' => 'form-horizontal']]) ?>
 <div class="form-group">
@@ -44,6 +44,6 @@ $(function() {
     $('[name=color]').simplecolorpicker();
     $('[name=category]').select2();
     var qrWrap = $('.qr-wrap');
-    qrWrap.qrcode({text: qrWrap.data('href'), size: 400 });
+    qrWrap.qrcode({ text: qrWrap.data('href'), size: 400, radius: 0.5 });
 });
 </script>

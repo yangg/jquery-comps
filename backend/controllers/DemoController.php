@@ -106,6 +106,10 @@ JSON;
         return $this->renderAjax($this->action->id, compact('id'));
     }
 
+    public function actionLetterNav() {
+        return $this->render($this->action->id);
+    }
+
     public function actionReserving() {
         return $this->render($this->action->id);
     }

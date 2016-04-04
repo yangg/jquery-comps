@@ -35,7 +35,7 @@ backend\assets\AppAsset::register($this)
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/']],
+        ['label' => 'Home', 'url' => ['/demo/']],
         ['label' => 'Components', 'url' => ['/demo/components']],
         ['label' => 'Javascript', 'url' => ['/demo/javascript']],
         ['label' => 'Demos', 'url' => 'http://codepen.io/yangg/pens/popular/', 'linkOptions' => ['target' => '_blank']],

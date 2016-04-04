@@ -7,4 +7,8 @@
 
 ?>
 
-<a href="/demo/reserving">Reserving System</a>
+<ul>
+    <li><a href="/demo/reserving">Reserving System</a></li>
+    <li><a href="/demo/letter-nav">LetterNav</a></li>
+</ul>
+
