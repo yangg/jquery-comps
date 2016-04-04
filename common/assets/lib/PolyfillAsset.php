@@ -12,6 +12,7 @@ class PolyfillAsset extends AssetBundle
     public $jsOptions = ['condition' => 'lte IE 8', 'position' => \yii\web\View::POS_HEAD ];
     public $js = [
         'jquery-legacy.js',
+        'ie8-polyfill/html5shiv.js',
         "ie8-polyfill/ie8-polyfill.js",
         "ie8-polyfill/respond.js",
     ];
