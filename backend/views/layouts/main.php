@@ -8,7 +8,8 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
 
-backend\assets\AppAsset::register($this)
+backend\assets\AppAsset::register($this);
+common\assets\vendor\QrCodeAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -81,10 +82,23 @@ backend\assets\AppAsset::register($this)
 </div>
 
 <footer class="footer">
-    &copy; Brook <?= date('Y') ?>
+    <div id="page_qr" hidden style="line-height: 1;"></div>
+    <a href="javascript:" id="show_page_qr" title="Show my QR code">&copy; Brook <?= date('Y') ?></a>
 </footer>
-
 <?php $this->endBody() ?>
+<script>
+$(function()  {
+    var qrWrap = $('#page_qr');
+    $('#show_page_qr').one('click', function() {
+        qrWrap.qrcode({ text: location.href, size: 300 });
+    }).on('click', function() {
+        qrWrap.slideToggle();
+        if(qrWrap.is(':visible')) {
+            $('html,body').animate({scrollTop: '+=500'});
+        }
+    });
+});
+</script>
 </body>
 </html>
 <?php $this->endPage() ?>
