@@ -7,11 +7,14 @@
 .slide-in {
   @include position(fixed, 0 null 0 101%); z-index: 9;
   width: 100%; background: hsla(0, 0%, 0%, .5);
-  transition: .5s;
+  @media (max-width: 768px) { // slide-in only on mobile devices
+    transition: .5s;
+  }
   &.in {
     left: 0;
   }
 }
+
 .trans-center {
   @include position(absolute, 50% null null 50%);
   transform: translate(-50%, -50%);
@@ -44,9 +47,11 @@ html, body {
 @import "components/rating";
 @import "components/checkable";
 // include components
-.inter-select select + select { margin-top: 10px; }
-@media (min-width: $screen-sm-min) {
-  .inter-select select + select { margin-top: 0; margin-left: 10px; }
+.inter-select select + select {
+  margin-top: 10px;
+  @media (min-width: $screen-sm-min) {
+    margin-top: 0; margin-left: 10px;
+  }
 }
 
 @import "components/uploader";
@@ -54,5 +59,7 @@ html, body {
 
 @import "components/cat-tree";
 @import "components/carousel";
+
+@import "components/letter-nav";
 
 

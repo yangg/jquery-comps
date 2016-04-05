@@ -1,0 +1,37 @@
+.letter-nav {
+  .nav-main {
+    @include position(fixed, 0 0); padding-right: 18px;
+    font-size: 16px; overflow: auto; -webkit-overflow-scrolling: touch;
+    &.scrolling {
+      -webkit-overflow-scrolling: auto;
+      dt { position: static; } /* disable `position: sticky` to get proper offsetTop */
+    }
+
+    dt {
+      background-color: #f2f2f2; line-height: 1.5; font-weight: bold;
+      padding: 0 15px;
+      position: sticky; top: 0; z-index: 1;
+    }
+    dd {
+      padding: 10px 15px 10px 0; @include margin(null null null 15px);
+      //border-bottom: solid 1px #ddd;
+      //&:last-child { border-bottom: none; }
+      position: relative;
+      &::after {
+        content: '';
+        @include position(absolute, null 0 0 0);
+        border-bottom: solid 1px #aaa;
+        transform: scaleY(.5);
+        transform-origin: 0 100%;
+      }
+      &:last-child::after { border-bottom: none; }
+    }
+  }
+
+
+  .anchor-list {
+    font-size: 14px; line-height: 1.3; text-align: center;
+    position: fixed; right: 0; @include padding(null 4px null .5em);
+    top: 50%; transform: translateY(-50%);
+  }
+}

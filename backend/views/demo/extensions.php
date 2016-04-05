@@ -14,10 +14,11 @@ common\assets\lib\ImageUploaderAsset::register($this);
 common\assets\lib\CatTreeAsset::register($this);
 common\assets\lib\InputFilterAsset::register($this);
 common\assets\lib\CountDownAsset::register($this);
-common\assets\lib\CarouselAsset::register($this);
+
+$this->registerJsFile('@asset/lib/jquery.carousel.js');
 ?>
 <style>
-.carousel { width: 480px; }
+.carousel { width: 480px; max-width: 100%; }
 .carousel .item { height: 300px; }
 </style>
 
