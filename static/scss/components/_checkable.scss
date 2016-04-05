@@ -24,12 +24,13 @@ $checkable-cls: checkable;
       vertical-align: -7%;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      display: inline-block; /* enable animation */
       &::after {
         content: $icon-var-checkbox;
       }
     }
-    &:checked + span {  }
-    &:checked + span::after { content: $icon-var-checkbox-checked; animation: checkbox-bounce 0.3s; }
+    &:checked + span { animation: checkbox-bounce .3s; }
+    &:checked + span::after { content: $icon-var-checkbox-checked; }
     &:disabled + span {
       color: #ccc;
     }
