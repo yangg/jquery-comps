@@ -4,6 +4,19 @@
 
 .space-before { margin-left: .6em; }
 
+.slide-in {
+  @include position(fixed, 0 null 0 101%); z-index: 9;
+  width: 100%; background: hsla(0, 0%, 0%, .5);
+  transition: .5s;
+  &.in {
+    left: 0;
+  }
+}
+.trans-center {
+  @include position(absolute, 50% null null 50%);
+  transform: translate(-50%, -50%);
+}
+
 
 html, body {
   height: 100%;

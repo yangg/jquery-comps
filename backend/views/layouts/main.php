@@ -82,21 +82,29 @@ common\assets\vendor\QrCodeAsset::register($this);
 </div>
 
 <footer class="footer">
-    <div id="page_qr" hidden style="line-height: 1;"></div>
-    <a href="javascript:" id="show_page_qr" title="Show my QR code">&copy; Brook <?= date('Y') ?></a>
+    <a href="#page_qr" id="show_page_qr" title="Show my QR code">&copy; Brook <?= date('Y') ?></a>
 </footer>
+<div id="qr_pop" class="slide-in"><span id="page_qr" class="trans-center" style="line-height: 1;background: #fff;padding: 10px;" ></span></div>
 <?php $this->endBody() ?>
 <script>
 $(function()  {
-    var qrWrap = $('#page_qr');
+    var qrPop = $('#qr_pop');
     $('#show_page_qr').one('click', function() {
-        qrWrap.qrcode({ text: location.href, size: 300 });
-    }).on('click', function() {
-        qrWrap.slideToggle();
-        if(qrWrap.is(':visible')) {
-            $('html,body').animate({scrollTop: '+=500'});
+        qrPop.children().qrcode({ text: location.href, size: 260 });
+    }).add(qrPop).on('click', function() {
+        qrPop.toggleClass('in');
+        if(!qrPop.hasClass('in')) { // hide qrPop
+            history.replaceState(null, null, location.href.replace(/#.*/g, ''));
         }
     });
+    $(window).on('hashchange', function() { // back forward
+        if(!location.hash) {
+            qrPop.removeClass('in');
+        }
+    });
+    if(location.hash) {
+        $('a[href="' + location.hash + '"]').click();
+    }
 });
 </script>
 </body>
