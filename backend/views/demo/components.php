@@ -12,7 +12,7 @@ common\assets\lib\DistrictAsset::register($this);
 
 <style>
     .rating { font-size: 2em; }
-    p > code {
+    p > code, small > code {
         padding: 2px 4px;
         font-size: 90%;
         color: #c7254e;
@@ -70,14 +70,14 @@ common\assets\lib\DistrictAsset::register($this);
 <?php Prism::end()?>
 
 <h1 class="page-header">InterSelect</h1>
-<p class="lead">...</p>
+<p class="lead">无限级的下拉框连动</p>
 <div data-toggle="interSelect" data-data='<?=json_encode($cats)?>' class="form-inline" ></div>
-<h2>District</h2>
-<div data-toggle="district" style="margin-top: 10px;" class="form-inline" ></div>
+<h2>District <small>(inherited from <code>InterSelect</code>)</small></h2>
+<div data-toggle="district" style="margin-top: 10px;" class="form-inline" data-value='[6, 77, 707]'></div>
 <h2>Usage</h2>
 <?php Prism::begin()?>
 <div data-toggle="interSelect" data-data='...'  class="form-inline"></div>
-<div data-toggle="district"  style="margin-top: 10px;" class="form-inline"></div>
+<div data-toggle="district" style="margin-top: 10px;" class="form-inline" data-value='[6, 77, 707]'></div>
 <?php Prism::end()?>
 
 

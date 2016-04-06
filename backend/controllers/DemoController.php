@@ -69,9 +69,12 @@ JSON;
     public function actionComponents() {
 
         $cats = [
-            [ 'id' => 1, 'name' => 'Haha', 'parent_id' => 0],
-            [ 'id' => 2, 'name' => 'Yaya', 'parent_id' => 0],
-            [ 'id' => 11,'name' => 'Child', 'parent_id' => 1 ],
+            [ 'id' => 1, 'name' => 'Highest', 'parent_id' => 0],
+            [ 'id' => 2, 'name' => 'Hehe', 'parent_id' => 0],
+            [ 'id' => 11,'name' => 'Higher', 'parent_id' => 1 ],
+            [ 'id' => 21,'name' => 'High', 'parent_id' => 11 ],
+            [ 'id' => 31,'name' => 'Normal', 'parent_id' => 21 ],
+            [ 'id' => 41,'name' => 'Low', 'parent_id' => 31 ],
         ];
         return $this->render('components', compact('cats'));
     }

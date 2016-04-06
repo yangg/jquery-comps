@@ -49,7 +49,7 @@
     cls: 'inter-select',
     selectCls: 'form-control',
     name: '',
-    names: [0, 1],
+    names: [0, 1, 2],
     nameTemplate: '{1}',
     keys: ['id', 'name', 'parent_id'],
     value: [],
