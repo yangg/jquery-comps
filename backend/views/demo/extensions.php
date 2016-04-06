@@ -53,20 +53,22 @@ $this->registerJsFile('@asset/lib/jquery.carousel.js');
 <h1 class="page-header">$.fn.countDown</h1>
 Time remained: <span class="count-down" data-end="<?=strtotime('+5 mins')?>"?></span>
 
-<h1 class="page-header">$.fn.carousel</h1>
-<div data-toggle="carousel" class="carousel" style="">
-    <div class="carousel-scroller">
-        <div class="carousel-inner">
-            <?php foreach ($adverts as $adv): ?>
-                <a href="<?= $adv['link'] ? : 'javascript:'  ?>" class="item">
-                    <img src="<?= $adv['image'] ?>" title="<?= $adv['title'] ?>"/>
-                </a>
-            <?php endforeach ?>
+<div <?=YII_ENV_DEV ? '' : 'hidden'?>>
+    <h1 class="page-header">$.fn.carousel</h1>
+    <div data-toggle="carousel" class="carousel" style="">
+        <div class="carousel-scroller">
+            <div class="carousel-inner">
+                <?php foreach ($adverts as $adv): ?>
+                    <a href="<?= $adv['link'] ? : 'javascript:'  ?>" class="item">
+                        <img src="<?= $adv['image'] ?>" title="<?= $adv['title'] ?>"/>
+                    </a>
+                <?php endforeach ?>
+            </div>
         </div>
+        <a href="javascript:" class="carousel-next carousel-prev" data-backward="true"><i class="icon i-angle-left"></i></a>
+        <a href="javascript:" class="carousel-next"><i class="icon i-angle-right"></i></a>
+        <div class="carousel-pager"></div>
     </div>
-    <a href="javascript:" class="carousel-next carousel-prev" data-backward="true"><i class="icon i-angle-left"></i></a>
-    <a href="javascript:" class="carousel-next"><i class="icon i-angle-right"></i></a>
-    <div class="carousel-pager"></div>
 </div>
 
 <script>

@@ -38,7 +38,6 @@ common\assets\vendor\QrCodeAsset::register($this);
     $menuItems = [
         ['label' => 'Home', 'url' => ['/demo/index']],
         ['label' => 'Components', 'url' => ['/demo/components']],
-        ['label' => 'Javascript', 'url' => ['/demo/javascript']],
         ['label' => 'Demos', 'url' => 'http://codepen.io/yangg/pens/popular/', 'linkOptions' => ['target' => '_blank']],
         [
             'label' => 'More',
@@ -46,6 +45,7 @@ common\assets\vendor\QrCodeAsset::register($this);
                 ['label' => 'Bootstrap+', 'url' => ['/demo/bootstrap'] ],
                 ['label' => 'Vendor Plugins', 'url' => ['/demo/vendors'] ],
                 ['label' => 'Extensions', 'url' => ['/demo/extensions']],
+                ['label' => 'Javascript', 'url' => ['/demo/javascript']],
             ]
         ],
     ];
@@ -82,7 +82,7 @@ common\assets\vendor\QrCodeAsset::register($this);
 </div>
 
 <footer class="footer">
-    <a href="#page_qr" id="show_page_qr" title="Show my QR code">&copy; Brook <?= date('Y') ?></a>
+    <a href="#page_qr" id="show_page_qr" title="View on mobile device">&copy; Brook <?= date('Y') ?></a>
 </footer>
 <div id="qr_pop" class="slide-in">
     <div class="trans-center">

@@ -15,7 +15,7 @@ $list = [
     ['id' => 3, 'word' => 'impeachment', 'definitions' => ''],
 ];
 ?>
-
+<p class="text-center">拓展了 bootstrap 的 modal & popover </p>
 <table class="table-default">
     <thead>
     <tr>
