@@ -84,13 +84,18 @@ common\assets\vendor\QrCodeAsset::register($this);
 <footer class="footer">
     <a href="#page_qr" id="show_page_qr" title="Show my QR code">&copy; Brook <?= date('Y') ?></a>
 </footer>
-<div id="qr_pop" class="slide-in"><span id="page_qr" class="trans-center" style="line-height: 1;background: #fff;padding: 10px;" ></span></div>
+<div id="qr_pop" class="slide-in">
+    <div class="trans-center">
+        <span id="page_qr" style="line-height: 1;background: #fff;padding: 10px;display:inline-block" ></span>
+        <p style="text-align: center;margin-top: 10px;color:#fff;">手机扫描二维码查看本页面</p>
+    </div>
+</div>
 <?php $this->endBody() ?>
 <script>
 $(function()  {
     var qrPop = $('#qr_pop');
     $('#show_page_qr').one('click', function() {
-        qrPop.children().qrcode({ text: location.href, size: 260 });
+        $('#page_qr').qrcode({ text: location.href.replace(/#.*/g, ''), size: 260 });
     }).add(qrPop).on('click', function() {
         qrPop.toggleClass('in');
         if(!qrPop.hasClass('in')) { // hide qrPop
