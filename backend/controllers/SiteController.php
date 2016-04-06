@@ -14,7 +14,7 @@ class SiteController extends Controller
     /**
      * @inheritdoc
      */
-    public function behaviors()
+    public function behaviors1()
     {
         return [
             'access' => [
@@ -54,7 +54,8 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->redirect('/demo');
+//        return $this->render('index');
     }
 
     public function actionLogin()

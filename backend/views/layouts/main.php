@@ -36,7 +36,7 @@ common\assets\vendor\QrCodeAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/demo/']],
+        ['label' => 'Home', 'url' => ['/demo/index']],
         ['label' => 'Components', 'url' => ['/demo/components']],
         ['label' => 'Javascript', 'url' => ['/demo/javascript']],
         ['label' => 'Demos', 'url' => 'http://codepen.io/yangg/pens/popular/', 'linkOptions' => ['target' => '_blank']],

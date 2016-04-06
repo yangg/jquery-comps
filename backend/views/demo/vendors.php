@@ -35,7 +35,7 @@ $colors = array_combine($colors, $colors);
 <div class="form-group">
     <label class="control-label col-sm-3">Category</label>
     <div class="col-sm-8">
-        <div class="qr-wrap" data-href="http://google.com"></div>
+        <div class="qr-wrap" data-href="http://uedsky.com"></div>
     </div>
 </div>
 <?php yii\widgets\ActiveForm::end()?>

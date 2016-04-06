@@ -1,5 +1,5 @@
 <?php
-defined('YII_DEBUG') or define('YII_DEBUG', false);
+defined('YII_DEBUG') or define('YII_DEBUG', isset($_COOKIE['YII_DEBUG']) ? $_COOKIE['YII_DEBUG'] : false);
 defined('YII_ENV') or define('YII_ENV', 'prod');
 
 require(__DIR__ . '/../../vendor/autoload.php');
