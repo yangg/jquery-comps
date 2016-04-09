@@ -34,6 +34,12 @@ $this->registerJsFile('@asset/lib/jquery.carousel.js');
     </div>
 </div>
 
+<h1 lass="page-header">Image placeholder</h1>
+<div class="img-placeholder" style="width: 300px; height: 200px;border: solid 1px #ccc;" >
+    <img data-src="http://ww2.sinaimg.cn/large/6eba2496gw1erep0e1leyj21hc0xcwlh.jpg"/>
+</div>
+<p>Click to load img</p>
+
 <h1 class="page-header">InputFilter</h1>
 <div class="row">
     <div class="col-sm-5">
@@ -74,6 +80,11 @@ Time remained: <span class="count-down" data-end="<?=strtotime('+5 mins')?>"?></
 <script>
     $(function() {
         $('.image-uploader').imageUploader();
+
+        $('img[data-src]').parent().click(function() {
+            var img = $(this).find('img');
+            img[0].src = img.data('src');
+        });
 
         $('.count-down').countDown({
             onEnd: function() {

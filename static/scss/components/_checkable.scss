@@ -18,21 +18,20 @@ $checkable-cls: checkable;
     opacity: 0;
 
     + span {
-      color: $brand-primary;
-      font-family: $icon-font;
+      @include icon-settings;
+      color: #ddd8ce;
       font-size: 1.2em;
       vertical-align: -7%;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
       display: inline-block; /* enable animation */
       &::after {
         content: $icon-var-checkbox;
       }
     }
+    &:hover + span, &:checked + span  { color: $brand-primary; }
     &:checked + span { animation: checkbox-bounce .3s; }
     &:checked + span::after { content: $icon-var-checkbox-checked; }
     &:disabled + span {
-      color: #ccc;
+      color: #eee;
     }
   }
   [type=radio] {

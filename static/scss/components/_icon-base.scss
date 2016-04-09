@@ -2,14 +2,18 @@
 
 $icon-cls: icon !default;
 
+@mixin icon-settings {
+  font-family: $icon-font;
+  text-rendering: auto; // optimizelegibility throws things off #1094
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .#{$icon-cls} {
   display: inline-block;
   font: normal normal normal 14px/1 $icon-font; // shortening font declaration
   font-size: inherit; // can't have font-size inherit on line above, so need to override
-  text-rendering: auto; // optimizelegibility throws things off #1094
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
+  @include icon-settings;
 }
 
 @import "../../vendor/font-awesome/variables";

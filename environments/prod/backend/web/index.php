@@ -1,6 +1,6 @@
 <?php
-defined('YII_DEBUG') or define('YII_DEBUG', isset($_COOKIE['YII_DEBUG']) ? $_COOKIE['YII_DEBUG'] : false);
-defined('YII_ENV') or define('YII_ENV', 'prod');
+defined('YII_DEBUG') or define('YII_DEBUG', isset($_COOKIE['APP_DEBUG']) ? true : false);
+defined('YII_ENV') or define('YII_ENV', isset($_COOKIE['APP_DEBUG']) ? 'dev' : 'prod');
 
 require(__DIR__ . '/../../vendor/autoload.php');
 require(__DIR__ . '/../../vendor/yiisoft/yii2/Yii.php');

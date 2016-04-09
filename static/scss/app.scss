@@ -2,6 +2,31 @@
 @import "mixins";
 @import "backend/variables";
 
+
+// components
+@import "components/icon-base";
+@import "backend/icon";
+
+@import "components/rating";
+@import "components/checkable";
+// include components
+.inter-select select + select {
+  margin-top: 10px;
+  @media (min-width: $screen-sm-min) {
+    margin-top: 0; margin-left: 10px;
+  }
+}
+
+@import "components/uploader";
+@import "components/tabs-select";
+
+@import "components/cat-tree";
+@import "components/carousel";
+
+@import "components/letter-nav";
+
+
+
 .space-before { margin-left: .6em; }
 
 .slide-in {
@@ -18,6 +43,24 @@
 .trans-center {
   @include position(absolute, 50% null null 50%);
   transform: translate(-50%, -50%);
+}
+
+.img-placeholder {
+  @include icon-settings;
+  font-size: 6em; line-height: 1; color: #999;
+  position: relative;
+
+  display: table-cell; text-align: center; vertical-align: middle;
+  img {
+    max-height:100%; max-width: 100%;
+  }
+
+  &::after {
+    content: $icon-var-image;
+    @include position(absolute, 50% null null 50%);
+    @include margin(-0.5em null null -0.5em);
+    z-index: -1;
+  }
 }
 
 
@@ -40,27 +83,5 @@ html, body {
   a { color: $text-color; }
 }
 
-
-
-@import "components/icon-base";
-@import "backend/icon";
-
-@import "components/rating";
-@import "components/checkable";
-// include components
-.inter-select select + select {
-  margin-top: 10px;
-  @media (min-width: $screen-sm-min) {
-    margin-top: 0; margin-left: 10px;
-  }
-}
-
-@import "components/uploader";
-@import "components/tabs-select";
-
-@import "components/cat-tree";
-@import "components/carousel";
-
-@import "components/letter-nav";
 
 

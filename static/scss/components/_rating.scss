@@ -5,10 +5,8 @@ $rating-star-o: $icon-var-star-o !default;
 $rating-color: #fdca7a !default;
 
 .rating {
+  @include icon-settings;
   display: inline-block;
-  font-family: $rating-font;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 
   color: $rating-color;
   letter-spacing: .3em;
