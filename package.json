@@ -42,5 +42,8 @@
     "node-notifier": "^4.5.0",
     "postcss-opacity": "^3.0.0",
     "postcss-pseudoelements": "^3.0.0"
+  },
+  "scripts": {
+    "test": "gulp dist"
   }
 }
