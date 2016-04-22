@@ -38,7 +38,7 @@ common\assets\vendor\QrCodeAsset::register($this);
     $menuItems = [
         ['label' => 'Home', 'url' => ['/demo/index']],
         ['label' => 'Components', 'url' => ['/demo/components']],
-        ['label' => 'Demos', 'url' => 'http://codepen.io/yangg/pens/popular/', 'linkOptions' => ['target' => '_blank']],
+        ['label' => 'Code pens', 'url' => 'http://codepen.io/yangg/pens/public/', 'linkOptions' => ['target' => '_blank']],
         [
             'label' => 'More',
             'items' => [
@@ -93,6 +93,11 @@ common\assets\vendor\QrCodeAsset::register($this);
 <?php $this->endBody() ?>
 <script>
 $(function()  {
+    var isTouchDevice = function() {  return 'ontouchstart' in window || 'onmsgesturechange' in window; }();
+    if(!isTouchDevice && $(document.documentElement).data('require-touch')) {
+        location.href = '#page_qr'
+    }
+
     var qrPop = $('#qr_pop');
     $('#show_page_qr').one('click', function() {
         $('#page_qr').qrcode({ text: location.href.replace(/#.*/g, ''), size: 260 });
