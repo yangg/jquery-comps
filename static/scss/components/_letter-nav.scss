@@ -17,7 +17,7 @@
       //border-bottom: solid 1px #ddd;
       //&:last-child { border-bottom: none; }
       position: relative;
-      &::after {
+      &:not(:last-child)::after {
         content: '';
         @include position(absolute, null 0 0 0);
         border-bottom: solid 1px #aaa;

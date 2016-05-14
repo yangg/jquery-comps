@@ -45,21 +45,30 @@
   transform: translate(-50%, -50%);
 }
 
-.img-placeholder {
-  @include icon-settings;
-  font-size: 6em; line-height: 1; color: #999;
-  position: relative;
-
+.img-wrap {
   display: table-cell; text-align: center; vertical-align: middle;
   img {
-    max-height:100%; max-width: 100%;
+    max-height:100%; max-width: 100%; display: block;
   }
+}
+.img-placeholder {
+  @include icon-settings;
+  font-size: 6em; line-height: 1; color: #999 !important;
+  position: relative;
 
   &::after {
     content: $icon-var-image;
-    @include position(absolute, 50% null null 50%);
-    @include margin(-0.5em null null -0.5em);
-    z-index: -1;
+    @include position(absolute, 50% 0 null);
+    margin-top: -.5em;
+    line-height: inherit;
+    z-index: -1; // 使图片加载后能够后直接盖住图标
+  }
+  &.img-error::after {
+    content: 'Load failed';
+    font-size: 20px;
+  }
+  &.img-error img {
+    display: none;
   }
 }
 
