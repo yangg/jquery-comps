@@ -25,15 +25,35 @@ paths.res_src = paths.src + '**/*.{min.js,min.css,png,jpg,gif,swf,htc,eot,svg,tt
 paths.style_src = paths.src + ({ sass: 'scss/**/*.scss', less: 'less/**/*.less' }[config.preprocessor]);
 
 function notify(err) {
+  // prevent gulp process exit
+  this.emit('end');
+
   var title = err.plugin + ' ' + err.name;
   var msg = err.message;
-  console.log(msg);
+  // print error to stderr
+  process.stderr.write(title + '\n ' + err.messageFormatted);
+  // system notification
   notifier.notify({
     title: title,
     message: msg,
     sound: 'Morse'
   });
-  this.emit('end');
+
+  // show sass compile error on page
+  // get dest file from error file
+  var errFile = err.relativePath.replace(/\bscss\b/g, 'css');
+  if(err.file != 'stdin') { // error occurred in a partial file (via @import)
+    errFile = 'static/css/app.css'; // show error in a default file
+  }
+  var errContent = msg.replace(/\n/g, '\\A '); // replace to `\A`, `\n` is not allowed in css content
+  errContent = errContent.replace(/'/g, "\\$&"); // escape `'`
+  // http://codepen.io/scottkellum/pen/YXbpeQ
+  fs.writeFile(errFile, util.format('body:before { background: #fff; padding: 15px;' +
+    'position: fixed; left: 0; right: 0; z-index: 99999;' +
+    'overflow-y: auto; border-bottom: solid 1px #eee; color: #C93900;' +
+    'white-space: pre; font-family: monospace;' +
+    'content: \'%s\';}', errContent)
+  );
 }
 
 var urlPattern = /url\(\s*(['"]?)(\/assets\/)([^'" \)]*)\1\s*\)/g;
